@@ -45,6 +45,7 @@ public class SharedFragment extends Fragment {
         textView1 = view.findViewById(R.id.share_text);
         textView1.setText(text);
 
+
         Button share = view.findViewById(R.id.share_button);
         share.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,4 +59,5 @@ public class SharedFragment extends Fragment {
 
         });
     }
+
 }

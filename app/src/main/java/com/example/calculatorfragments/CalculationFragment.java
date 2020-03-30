@@ -1,5 +1,6 @@
 package com.example.calculatorfragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -28,7 +29,9 @@ public class CalculationFragment extends Fragment {
     Double secondValues;
     Double result;
     String operation;
-    Fragment fragment;
+    String someText;
+
+
 
 
 
@@ -83,17 +86,13 @@ public class CalculationFragment extends Fragment {
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         textView = view.findViewById(R.id.text_view);
-
          Button save = view.findViewById(R.id.save);
 save.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-       String someText = String.valueOf(result.doubleValue());
-        fragment=new CalculationFragment();
-        Bundle bundle=new Bundle();
-        bundle.putString("result",someText);
-        fragment.setArguments(bundle);
-           Log.d("ololo", someText);
+         someText = textView.getText().toString();
+        MainActivity activity=(MainActivity) getActivity();
+activity.onInputNumber(someText);
 
     }
 });
@@ -250,5 +249,9 @@ save.setOnClickListener(new View.OnClickListener() {
             }
         });
     }
-}
+
+
+
+    }
+
 
